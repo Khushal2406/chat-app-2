@@ -7,19 +7,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import authRoutes from './routes/auth.route.js';
-import { connect } from 'mongoose';
+// import { connectDB } from 'mongoose';
 
 const app = express();
 
-app.use(express.json());
-app.use(cookieParser());
 app.use(cors(
     {
         origin: "http://localhost:5173",
         credentials: true
     }
-))
-app.use("/app/auth", authRoutes);
+));
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/api/auth", authRoutes);
 
 app.listen(5001, () => {
     console.log('Server is running on port 5001');

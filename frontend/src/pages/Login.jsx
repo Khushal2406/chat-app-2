@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 
 const Login = () => {
-  const {showpassword, setShowPassword} = useState(false);
-  const {formData, setFormData} = useState({
+  const [showpassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-  const {login, isloggingIn} = useAuthStore();
+  const {login, isLoggingIn} = useAuthStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
